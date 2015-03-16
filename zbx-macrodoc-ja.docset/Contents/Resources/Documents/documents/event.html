@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>イベント - Zabbix 障害通知マクロ まとめ</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+          <h2>イベントに関するもの</h2>
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr>
+
+      <h2>イベント内のアクションのログ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.HISTORY}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.HISTORY}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.HISTORY}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.HISTORY}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベント内のアクションの状態( Yes / NO )</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.ACK.STATUS}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントの時期</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{EVENT.AGE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.AGE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.AGE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.AGE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.AGE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントの日付</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{EVENT.DATE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.DATE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.DATE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.DATE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.DATE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントの時刻</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{EVENT.TIME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.TIME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.TIME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.TIME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.TIME}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知したイベントのID(数値)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{EVENT.ID}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{EVENT.ID}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{EVENT.ID}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.ID}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.ID}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントの数値</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.VALUE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントの状態</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.STATUS}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>リカバリーした日付</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.DATE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.DATE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>リカバリーしたID(数値)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.ID}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.ID}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>リカバリーした状態</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.STATUS}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>リカバリーした時間</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.TIME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.TIME}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>リカバリーした数値</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{EVENT.RECOVERY.VALUE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
