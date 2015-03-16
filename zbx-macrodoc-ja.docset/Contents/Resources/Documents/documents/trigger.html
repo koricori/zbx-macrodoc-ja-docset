@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>トリガー - Zabbix 障害通知マクロ まとめ</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+          <h2>トリガーに関するもの</h2>
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr>
+
+      <h2>トリガーのコメント</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.COMMENT}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.COMMENT}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.DESCRIPTION}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.DESCRIPTION}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.DESCRIPTION}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>ステータスに関わらず、すべてのトリガーに対する対応済みの「障害」イベントの数 ※1.8.3以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.ACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.ACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.ACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.ACK}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>ステータスに関わらず、すべてのトリガーに対する未対応の「障害」イベントの数 ※1.8.3以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.EVENTS.PROBLEM.UNACK}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーが定義されているホストグループのリスト(SQLクエリでソートされ、カンマ区切り) ※2.0.6からサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.HOSTGROUP.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.HOSTGROUP.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.HOSTGROUP.NAME}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガー条件式 ※1.8.12以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.EXPRESSION}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.EXPRESSION}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.EXPRESSION}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.EXPRESSION}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>このアクションのトリガーとなったトリガーのID(数値)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.ID}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.ID}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.ID}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.ID}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.ID}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>(マクロで拡張されていない)オリジナルのトリガー名 ※2.0.6以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME.ORIG}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME.ORIG}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.NAME.ORIG}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーの深刻度(数値) ※1.6.2からサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.NSEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.NSEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.NSEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.NSEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.NSEVERITY}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーの深刻度</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.SEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.SEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.SEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.SEVERITY}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.SEVERITY}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーのステータス ( 障害 / OK )</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.STATUS}<br>{STATUS}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.STATUS}<br>{STATUS}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.STATUS}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.STATUS}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーが定義されているテンプレートのリスト、あるいはトリガーがホスト内で定義されている場合の<br><em>UNKNOWN</em> のリスト(SQLクエリでソートされ、カンマ区切り) ※2.0.6からサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.TEMPLATE.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.TEMPLATE.NAME}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.TEMPLATE.NAME}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガーのURL</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.URL}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.URL}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.URL}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.URL}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.URL}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>現在のトリガーの値</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{TRIGGER.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{TRIGGER.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{TRIGGER.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{TRIGGER.VALUE}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{TRIGGER.VALUE}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガー条件式で使用されるシンプルなマクロ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="300" style="text-align: center">v1.6</th>
+			<td width="300" style="text-align: center">{host:key.func(param)}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v1.8</th>
+			<td width="300" style="text-align: center">{host:key.func(param)}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.0</th>
+			<td width="300" style="text-align: center">{host:key.func(param)}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.2</th>
+			<td width="300" style="text-align: center">{host:key.func(param)}</td>
+			</tr>
+			<tr>
+			<th width="300" style="text-align: center">v2.4</th>
+			<td width="300" style="text-align: center">{host:key.func(param)}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
