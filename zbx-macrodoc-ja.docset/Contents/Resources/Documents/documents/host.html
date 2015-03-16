@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>ホスト - Zabbix 障害通知マクロ まとめ</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+          <h2>ホストに関するもの</h2>
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr>
+
+      <h2>通知したトリガーのアイテムのホスト名</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{HOSTNAME}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{HOSTNAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{HOST.HOST&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{HOST.HOST&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.HOST&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>IPとホストDNS名(ホスト設定に依存)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{HOST.CONN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{HOST.CONN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{HOST.CONN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.CONN&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストの説明</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.DESCRIPTION}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストのDNS名</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{HOST.DNS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{HOST.DNS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{HOST.DNS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.DNS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>通知を生成したトリガーのアイテムのIPアドレス</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{IPADDRESS}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{IPADDRESS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{HOST.IP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{HOST.IP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.IP&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホスト(エージェント)のポート番号</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{HOST.PORT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{HOST.PORT&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のエイリアス</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.ALIAS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.ALIAS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.ALIAS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のアセットタグ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.ASSET.TAG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.ASSET.TAG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.ASSET.TAG&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のシャーシ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.CHASSIS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.CHASSIS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.CHASSIS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の連絡先</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.CONTACT}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.CONTACT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTACT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTACT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTACT&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の連絡先の番号</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTRACT.NUMBER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTRACT.NUMBER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.CONTRACT.NUMBER&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のデプロイメントステータス</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.DEPLOYMENT.STATUS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.DEPLOYMENT.STATUS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.DEPLOYMENT.STATUS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のハードウェア</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.HARDWARE}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.HARDWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ハードウェア(ホストインベントリ内での詳細)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HARDWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のホストのサブネットマスク</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のホストのネットワーク</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETWORKS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETWORKS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.NETWORKS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のホストのルータ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HOST.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のハードウェアのアーキテクチャ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.ARCH&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.ARCH&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.ARCH&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のハードウェアの撤去日</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.DECOMM&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.DECOMM&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.DECOMM&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリの、ハードウェアのメンテナンスの終了日</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.EXPIRY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.EXPIRY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.EXPIRY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のハードウェアのインストール日</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.INSTALL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.INSTALL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.INSTALL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のハードウェアの購買日</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.PURCHASE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.PURCHASE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.HW.DATE.PURCHASE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のインストーラ名</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.INSTALLER.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.INSTALLER.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.INSTALLER.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の場所</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.LOCATION}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.LOCATION&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の場所の緯度</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LAT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LAT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LAT&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の場所の経度</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LON&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LON&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.LOCATION.LON&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のMACアドレスA</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.MACADDRESS}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.MACADDRESS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のMACアドレスB</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.MACADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のモデル</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.MODEL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.MODEL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.MODEL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.NAME}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のノート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.NOTES}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOOBIPアドレス</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.IP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.IP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.IP&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOOBサブネットマスク</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.NETMASK&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOOBルータ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OOB.ROUTER&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOS</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.OS}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.OS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOS(詳細)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.FULL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のOS(短縮)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.SHORT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.SHORT&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.OS.SHORT&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCセル</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCEmail</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCのノート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCの電話番号A</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCの電話番号B</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第1POCの表示名</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.PRIMARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCセル</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.CELL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCEmail</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.EMAIL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCのノート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCの電話番号A</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCの電話番号B</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.PHONE.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内の第2POCの表示名</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.POC.SECONDARY.SCREEN&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のシリアルナンバーA</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.SERIALNO}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.SERIALNO&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のシリアルナンバーB</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SERIALNO.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトアドレスA</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトアドレスB</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトアドレスC</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ADDRESS.C&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトの都市</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.CITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.CITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.CITY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトの国</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.COUNTRY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.COUNTRY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.COUNTRY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトのノート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.NOTES&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のラックの場所</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.RACK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.RACK&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.RACK&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトの州/省</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.STATE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.STATE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.STATE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のサイトの郵便番号</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ZIP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ZIP&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SITE.ZIP&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェア</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.SOFTWARE}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.SOFTWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェアアプリケーションA</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェアアプリケーションB</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェアアプリケーションC</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.C&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェアアプリケーションD</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.D&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.D&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.D&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェアアプリケーションE</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.E&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.E&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.APP.E&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のソフトウェア(詳細)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.SOFTWARE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のタグ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.TAG}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.TAG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.TAG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.TAG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.TAG&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のタイプ</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">{PROFILE.DEVICETYPE}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">{PROFILE.DEVICETYPE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のタイプ(詳細)</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.TYPE.FULL&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のURL A</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.A&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.A&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のURL B</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.B&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.B&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のURL C</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.C&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.URL.C&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+      <h2>ホストインベントリ内のベンダー</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="350" style="text-align: center">v1.6</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v1.8</th>
+			<td width="350" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.0</th>
+			<td width="350" style="text-align: center">{INVENTORY.VENDOR&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.2</th>
+			<td width="350" style="text-align: center">{INVENTORY.VENDOR&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="350" style="text-align: center">v2.4</th>
+			<td width="350" style="text-align: center">{INVENTORY.VENDOR&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
