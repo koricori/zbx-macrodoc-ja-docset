@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>マップ - Zabbix 障害通知マクロ まとめ</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+          <h2>マップに関するもの</h2>
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr>
+
+      <h2>マップのマップ項目に対する未応答イベントの数<br>または通知で現在のイベントを生成したトリガーに対する未応答イベントの数<br>※1.8.3以降のマップ項目ラベルでサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.UNACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.UNACK}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>マップの項目に対する対応済みのイベントの数<br>あるいは通知内の現在のイベントを生成したトリガーに対する対応済みのイベントの数<br>※1.8.3以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.ACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.ACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.ACK}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{TRIGGER.EVENTS.ACK}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
