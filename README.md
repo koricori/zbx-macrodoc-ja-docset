@@ -1,6 +1,8 @@
 ### 概要
 
-Qiita にて投稿した、Zabbix 障害通知マクロ のDash版です。
+Qiita にて投稿した、Zabbix 障害通知マクロ のDash版です。  
+
+* [Zabbixでの障害通知マクロのまとめ](http://qiita.com/AH_korikori/items/9350f94676cfcb7e734a)
 
 ### 使い方
 
