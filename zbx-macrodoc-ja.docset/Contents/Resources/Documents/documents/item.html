@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>アイテム - Zabbix 障害通知マクロ まとめ</title>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/carousel.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container marketing">
+
+      <!-- Three columns of text below the carousel -->
+      <div class="row">
+          <h2>アイテムに関するもの</h2>
+      </div><!-- /.row -->
+
+
+      <!-- START THE FEATURETTES -->
+
+      <hr>
+
+      <h2>通知の原因となったトリガー条件式のアイテムの説明</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.DESCRIPTION&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.DESCRIPTION&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.DESCRIPTION&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムのID(数値) ※1.8.12以降</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+        	<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.ID&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムのキー</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{TRIGGER.KEY}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{TRIGGER.KEY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.KEY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.KEY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.KEY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムの(マクロで拡張されていない)オリジナルキー ※2.0.6以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.KEY.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.KEY.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.KEY.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムの最新の値 {{HOST.HOST}:{ITEM.KEY}.last(0)} へのエイリアス</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{ITEM.LASTVALUE}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LASTVALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LASTVALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LASTVALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LASTVALUE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+	  <hr>
+
+	  <h2>アイテムで取得したログを検出した時期</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.AGE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.AGE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.AGE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.AGE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>アイテムで取得したログを検出した日付</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.DATE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.DATE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.DATE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.DATE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>アイテムで取得したログを検出した時間</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.TIME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.TIME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.TIME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.TIME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントログのID ※ Windows event log をモニタリングする時のみ使用</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.EVENTID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.EVENTID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.EVENTID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.EVENTID&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントログの重要度(数値) ※ Windows event log をモニタリングする時のみ使用</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.NSEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.NSEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.NSEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.NSEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントログの重要度 ※ Windows event log をモニタリングする時のみ使用</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SEVERITY&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>イベントログを取得した情報の場所 ※ Windows event log をモニタリングする時のみ使用</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SOURCE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SOURCE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SOURCE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.LOG.SOURCE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知したトリガーのアイテムの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">{ITEM.NAME}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムの(マクロで拡張されていない)オリジナルの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.NAME.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.NAME.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.NAME.ORIG&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>トリガー条件式のN番目のアイテムの最新の値</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{ITEM.VALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{ITEM.VALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{ITEM.VALUE&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{ITEM.VALUE&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>ノードのID</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{NODE.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{NODE.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{NODE.ID&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">記載なし</td>
+			</tr>
+			</table>
+			<p>※ NODE.ID は、英語含め無記載と見受けられたので、そのまま記載しています。<br>
+※ v2.4にて、NODE.ID が記載されておりませんでした。その為、&quot;記載なし&quot;と書いております。</p>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>ノードの名前</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{NODE.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{NODE.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{NODE.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">記載なし</td>
+			</tr>
+			</table>
+			<p>※ NODE.NAME は、英語含め無記載と見受けられたので、そのまま記載しています。<br>
+※ v2.4にて、NODE.NAME が記載されておりませんでした。その為、&quot;記載なし&quot;と書いております。</p>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>通知の原因となったトリガー条件式のアイテムのプロキシ名 ※1.8.4以降でサポート</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">{PROXY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">{PROXY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">{PROXY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{PROXY.NAME&lt;1-9&gt;}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+      <hr>
+
+	  <h2>プロキシの説明</h2>
+      <div class="row featurette">
+        <div class="col-md-12">
+			<table border="2">
+			<tr>
+			<th width="200" style="text-align: center">v1.6</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v1.8</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.0</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.2</th>
+			<td width="200" style="text-align: center">-</td>
+			</tr>
+			<tr>
+			<th width="200" style="text-align: center">v2.4</th>
+			<td width="200" style="text-align: center">{PROXY.DESCRIPTION}</td>
+			</tr>
+			</table>
+        </div>
+      </div>
+
+
+   </div><!-- /.container -->
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>
